@@ -1,10 +1,11 @@
 from flask import Flask, Response
 import requests
 import re
+import os
 
 app = Flask(__name__)
 
-ICS_SOURCE_URL = "https://jlive.app/markets/cincinnati/ics-feed/feed.ics?token=eyJwayI6ImNpbmNpbm5hdGkiLCJjb21tdW5pdHlfY2FsZW5kYXIiOnRydWV9:1u6suP:rmMCXGHV2YBVnadKQmYjW-3O19e9UPhzz8f-b-OdUU8&lg=en"
+ICS_SOURCE_URL = "https://jlive.app/markets/cincinnati/ics-feed/feed.ics"
 
 # Função para melhorar a formatação do ICS
 def format_ics(ics_content):
@@ -25,4 +26,5 @@ def serve_formatted_ics():
         return "Erro ao acessar o ICS", 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Configuração para o Flask escutar em 0.0.0.0 e usar a porta definida pela variável de ambiente
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
