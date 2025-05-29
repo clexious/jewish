@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-ICS_SOURCE_URL = "https://jlive.app/markets/cincinnati/ics-feed/feed.ics"
+ICS_SOURCE_URL = "https://jlive.app/markets/cincinnati/ics-feed/feed.ics?token=eyJwayI6ImNpbmNpbm5hdGkiLCJjb21tdW5pdHlfY2FsZW5kYXIiOnRydWV9:1u6suP:rmMCXGHV2YBVnadKQmYjW-3O19e9UPhzz8f-b-OdUU8&lg=en"
 
 # Função para melhorar a formatação do ICS
 def format_ics(ics_content):
